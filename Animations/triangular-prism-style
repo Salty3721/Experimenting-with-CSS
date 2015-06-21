@@ -1,0 +1,64 @@
+/*--------------------------------------------------------------------------------
+		Rotating Cube
+--------------------------------------------------------------------------------*/
+.wrap {
+	/* no more perspective */
+	perspective: none;
+	perspective-origin: 0 0;
+}
+.cube {
+	position: relative;
+	width: 100px;
+
+	transform-style: preserve-3d;
+}
+.cube div {
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	border-left: 50px solid transparent;
+	border-right:50px solid transparent;
+	border-bottom:100px solid red;
+	background: linear-gradient(to right bottom, navy, 	#56A0D3);
+	opacity: .8;
+	color:white;
+	text-align:center;
+	vertical-align: middle;
+	line-height: 100px;
+}
+
+/*.back {
+	transform: translateZ(-50px) rotateY(180deg);
+}*/
+.right {
+	transform: rotateY(90deg)rotateX(-30deg) translateX(50px)translateZ(25px);
+	transform-origin: center;
+}
+.left {
+	transform: rotateY(270deg) rotateX(30deg) translateX(-25px);
+	transform-origin: bottom left;
+}
+/*.top {
+	transform: rotateX(-90deg) translateY(-50px);
+	transform-origin: top center;
+}
+.bottom {
+	transform: rotateX(90deg) translateY(50px);
+	transform-origin: bottom center;
+}*/
+.front {
+	transform: translateZ(25px)rotateX(30deg);
+
+}
+/*Spinning*/
+@keyframes spin {
+	from { transform: rotateY(0); }
+	to { transform: rotateY(360deg); }
+}
+
+.cube {
+	animation: spin 5s infinite linear;
+}
+.cube:hover{
+	animation: spin 5s infinite ease-in-out;
+}
