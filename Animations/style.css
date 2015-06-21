@@ -1,0 +1,159 @@
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+/*  GRID OF THREE  */
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 66.13%; }
+.span_1_of_3 { width: 32.26%; }
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+}
+/*--------------------------------------------------------------------------------
+		Rotating Button
+--------------------------------------------------------------------------------*/
+.button {
+    display: inline-block;
+    height: 60px;
+    width:200px;
+    border-radius:50px;
+    box-shadow: 0 8px 0 #1b383b;
+    line-height: 60px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    background:linear-gradient(to right, blue, royalblue);
+    font-family: "Comic Sans MS", "cursive", "sans-serif";
+    color:white;
+}
+
+.label {
+    display: block;
+    height: 100%;
+    position: relative;
+    top: 0%;
+    transition: top 0.35s;
+    width: 100%;
+}
+
+.button:hover .label {
+    top: -100%;
+}
+
+/*--------------------------------------------------------------------------------
+		HOVER BOUNCE
+--------------------------------------------------------------------------------*/
+.logo {
+    background-image: url(logo.png);
+    background-repeat: no-repeat;
+    height: 100px;
+    margin: 50px;
+    width: 76px;
+}
+
+.logo:hover {
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+}
+
+@keyframes bounce {
+    45% {
+        height: 130px;
+        margin-top: 70px;
+    }
+    55% {
+        height: 130px;
+        margin-top: 70px;
+    }
+    75% {
+        height: 170px;
+        margin-top: 0px;
+    }
+}
+/*--------------------------------------------------------------------------------
+		Rotating Cube
+--------------------------------------------------------------------------------*/
+.wrap {
+	/* no more perspective */
+	perspective: none;
+	perspective-origin: 0 0;
+}
+.cube {
+	position: relative;
+	width: 100px;
+
+	transform-style: preserve-3d;
+}
+.cube div {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background: linear-gradient(to right bottom, navy, 	#56A0D3);
+	opacity: .8;
+	color:white;
+	text-align:center;
+	vertical-align: middle;
+	line-height: 100px;
+}
+
+.back {
+	transform: translateZ(-50px) rotateY(180deg);
+}
+.right {
+	transform: rotateY(-270deg) translateX(50px);
+	transform-origin: top right;
+}
+.left {
+	transform: rotateY(270deg) translateX(-50px);
+	transform-origin: center left;
+}
+.top {
+	transform: rotateX(-90deg) translateY(-50px);
+	transform-origin: top center;
+}
+.bottom {
+	transform: rotateX(90deg) translateY(50px);
+	transform-origin: bottom center;
+}
+.front {
+	transform: translateZ(50px);
+
+}
+/*Spinning*/
+@keyframes spin {
+	from { transform: rotateY(0); }
+	to { transform: rotateY(360deg); }
+}
+
+.cube {
+	animation: spin 5s infinite linear;
+}
+.cube:hover{
+	animation: spin 5s infinite ease-in-out;
+}
+
+/*--------------------------------------------------------------------------------
+		Helix
+--------------------------------------------------------------------------------*/
+
